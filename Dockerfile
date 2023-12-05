@@ -4,8 +4,10 @@ FROM alpine:latest
 # Install necessary dependencies
 RUN apk --no-cache add wget tar bash
 
-# Download and extract TMATE
+# Set up working directory
 WORKDIR /tmate
+
+# Download and extract TMATE
 RUN wget -nc https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2.4.0-static-linux-i386.tar.xz && \
     tar --strip-components=1 -xvf tmate-2.4.0-static-linux-i386.tar.xz && \
     rm tmate-2.4.0-static-linux-i386.tar.xz
